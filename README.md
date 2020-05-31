@@ -1,2 +1,2 @@
 # Data-Projects
-Personal data projects
+My data and research projects, past and present.
