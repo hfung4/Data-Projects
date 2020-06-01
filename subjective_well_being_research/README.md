@@ -11,9 +11,9 @@
 
 - The web application survey is part of a larger project that investigates the effect of relative standings in non-monetary life domains such as social relationships and physical health on life satisfaction.
 
-- **Files:** 
+## Files
 
-  - For a quick read (2 min read) on how Subjective Wellbeing (SWB) can be applied to policymaking, please refer to my paper: **"The Application of Subjective Wellbeing in Policymaking.pdf"**.
+  - For a quick read (2 min read) on how Subjective Wellbeing (SWB) can be applied to policymaking, please refer to my paper: **"The Application of Subjective Wellbeing to Policymaking.pdf"**.
 
   -  For more details about the anchoring vignette survey (web app) and the research project, please refer to my report in **"Anchoring Vignette Survey (web app report).pdf"**
 
