@@ -1,8 +1,8 @@
-## Binary and Multi-class Classification of Software Requirements with Word Embeddings
+# Binary and Multi-class Classification of Software Requirements with Word Embeddings
 
 
 
-**Background**
+### Background
 
 - This project is a reproduction of a data project/feasibility study that I did at Logapps, LLC.  
 - The objective of my work at Logapps was to introduce statistical learning methods and deep learning with word embeddings to MARINE. a web-based application that assists requirement engineers to process and analysis software requirements.
@@ -18,7 +18,8 @@
 
 
 
-**Motivation of the project**
+
+### Motivation of the project
 
 - I wanted to answer the following questions from my data project at Logapps:
 
@@ -32,7 +33,7 @@
 
 
 
-**Datasets**
+### Datasets 
 
 - At Logapps I had a labelled software requirement dataset from 3 different government agencies, with sample size of about 5000 samples.  However, since I no longer have access to these datasets, to reproduce my work at Logapps, I will have to use two smaller benchmark datasets instead.
 
@@ -42,7 +43,7 @@
 
     
 
-**Workflow**
+### Workflow
 
 - Clean, tokenize, lemmatize, and removed stop-words/non-alphanumeric symbols from the software requirements.
 - Find bigrams and trigrams by training and applying Gensim phraser models to the software requirements.
