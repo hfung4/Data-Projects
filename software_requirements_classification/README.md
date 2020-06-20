@@ -25,10 +25,10 @@
 
   - (Q1) Can pre-trained word embeddings improve the performance of traditional statistical learning approaches?
 
-  - (Q2) Does CNN outperform Naïve Bayes, Random Forest, and Adaboost models?  At what cost (training time)?
+  - (Q2) Does CNN outperform SVC, Random Forest, and Adaboost models?  At what cost (training time)?
 
 - To this end, I trained and compared the performance of the following classifiers:
-  - "Traditional" statistical learning approaches such as Naïve Bayes, Random Forest, and Gradient Boosted Trees with 1) tf-idf and 2) word embeddings representations of the requirements.
+  - "Traditional" statistical learning approaches such as SVC, Random Forest, and Gradient Boosted Trees with 1) tf-idf and 2) word embeddings representations of the requirements.
   - CNN with word embeddings.
 
 
@@ -59,13 +59,13 @@
 
 - For each of these problems:
 
-  - I train and optimize a Naïve Bayes, Random Forest, and a Adaboost model with tf-idf and word embeddings to represent the software requirements.
+  - I train and optimize a SVC, Random Forest, and a Adaboost model with tf-idf and word embeddings to represent the software requirements.
   - I trained a CNN model with word embeddings.
 
 - I  compare the performance of each of these models and answer the following questions:
 
   - (Q1) Can pre-trained word embeddings improve the performance of traditional statistical learning approaches?
-  - (Q2) Does CNN outperform Naïve Bayes, Random Forest, and Adaboost models?  At what cost (training time)?
+  - (Q2) Does CNN outperform SVC, Random Forest, and Adaboost models?  At what cost (training time)?
 
   
 
