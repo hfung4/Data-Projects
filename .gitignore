@@ -40,4 +40,5 @@ Thumbs.db
 
 # Others #
 ######################
-.ipynb_checkpoints
+*.ipynb_checkpoints
+*.csv
