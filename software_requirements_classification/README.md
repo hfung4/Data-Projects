@@ -69,4 +69,33 @@
 
   
 
-  
+  ## Results
+
+- CNN with pre-trained word embeddings outperforms SVC, Random Forest and Adaboost classifiers in 2 out of the 3 classification tasks.
+- For larger datasets, perhaps the performance difference would be wider.  One distinct advantage of CNN is that it automatically identify features that are informative in making predictions; thus, we don't have to learn the bigrams and trigrams engineer these features ourselves.
+- All models require hyperparameters tuning, some more than others.
+- SVC is a simple and the fastest model to train.  I would go with SVC in this case since its performance is almost as good as CNN and Adaboost.
+- Pre-trained word embeddings compensate for the small amount of train data-- note that for the multiclass classification problem, I have less than 400 train observations to train my CNN!
+
+
+
+**Binary Classification: Model Comparison**
+
+
+
+![image-20200624114128295](C:\Users\henry_dw8mcdk\AppData\Roaming\Typora\typora-user-images\image-20200624114128295.png)
+
+![binary_classification_results_all](C:\Users\henry_dw8mcdk\Documents\github\Data-Projects\software_requirements_classification\outputs\final_model_comparison\binary_classification_results_all.jpeg)
+
+
+
+
+
+**Multiclass Classification: Model Comparison**
+
+![image-20200624114252668](C:\Users\henry_dw8mcdk\AppData\Roaming\Typora\typora-user-images\image-20200624114252668.png)
+
+
+
+![multiclass_classification_results_all](C:\Users\henry_dw8mcdk\Documents\github\Data-Projects\software_requirements_classification\outputs\final_model_comparison\multiclass_classification_results_all.jpeg)
+
