@@ -79,11 +79,17 @@
 
 
 
+<br\>
 **Binary Classification: Model Comparison**
 
 
 ![binaryResultTable](https://github.com/hfung4/Data-Projects/blob/master/software_requirements_classification/outputs/final_model_comparison/binary_results_table.jpeg)
 ![binaryResultPlot](https://github.com/hfung4/Data-Projects/blob/master/software_requirements_classification/outputs/final_model_comparison/binary_classification_results_all.jpeg)
+
+
+
+
+
 
 
 **Multiclass Classification: Model Comparison**
