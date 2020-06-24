@@ -76,7 +76,7 @@
 - All models require hyperparameters tuning, some more than others.
 - SVC is a simple and the fastest model to train.  I would go with SVC in this case since its performance is almost as good as CNN and Adaboost.
 - Pre-trained word embeddings compensate for the small amount of train data-- note that for the multiclass classification problem, I have less than 400 train observations to train my CNN! 
-
+<br>
 
 
 
