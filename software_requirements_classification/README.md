@@ -83,7 +83,7 @@
 
 
 
-![image-20200624114128295](C:\Users\henry_dw8mcdk\AppData\Roaming\Typora\typora-user-images\image-20200624114128295.png)
+![result1](../master/Data-Projects/software_requirements_classification/outputs/final_model_comparison/binary_classification_results_all.jpeg)
 
 ![binary_classification_results_all](C:\Users\henry_dw8mcdk\Documents\github\Data-Projects\software_requirements_classification\outputs\final_model_comparison\binary_classification_results_all.jpeg)
 
