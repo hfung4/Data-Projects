@@ -14,7 +14,7 @@
     - 1) Non-functional (NFRs) and functional requirements (FRs).  This is a binary classification problem.
     - 2) Different types of NFRs: for example security, performance, and scalability.  This is a multi-class classification problem since the NFR types are  mutually exclusive.
 - In short, FRs are requirements related to the features and use cases of a software product; while NFRs are related to how the software/system should achieve its objectives.
-- By automating software requirements classification, requirement engineers can be spared from the tedious and exhausting task of manually labelling thousands of software requirements.  In addition, it will reduce the domain-knowledge needed from requirement engineers.
+- By automating software requirements classification, requirement engineers can be spared from the tedious and exhausting task of manually labelling thousands of software requirements.  In addition, it will reduce the domain-knowledge needed from requirement engineers. <br><br>
 
 
 
@@ -29,7 +29,7 @@
 
 - To this end, I trained and compared the performance of the following classifiers:
   - "Traditional" statistical learning approaches such as SVC, Random Forest, and Gradient Boosted Trees with 1) tf-idf and 2) word embeddings representations of the requirements.
-  - CNN with word embeddings.
+  - CNN with word embeddings. <br><br>
 
 
 
@@ -39,7 +39,7 @@
 
   - The SecReq dataset that contains software requirements from three industries/domains: CPN, ePurse, GPS.  Each requirement is labelled security-related or non-security-related.
 
-  - The NFR dataset that contains software requirements labelled functional or non-functional, as well as nine-different subtypes of NFRs.
+  - The NFR dataset that contains software requirements labelled functional or non-functional, as well as nine-different subtypes of NFRs. <br><br>
 
     
 
@@ -65,7 +65,7 @@
 - I  compare the performance of each of these models and answer the following questions:
 
   - (Q1) Can pre-trained word embeddings improve the performance of traditional statistical learning approaches?
-  - (Q2) Does CNN outperform SVC, Random Forest, and Adaboost models?  At what cost (training time)?
+  - (Q2) Does CNN outperform SVC, Random Forest, and Adaboost models?  At what cost (training time)? <br><br>
 
   
 
@@ -76,7 +76,7 @@
 - All models require hyperparameters tuning, some more than others.
 - SVC is a simple and the fastest model to train.  I would go with SVC in this case since its performance is almost as good as CNN and Adaboost.
 - Pre-trained word embeddings compensate for the small amount of train data-- note that for the multiclass classification problem, I have less than 400 train observations to train my CNN! 
-<br>
+<br><br>
 
 
 
@@ -86,8 +86,8 @@
 
 
 ![binaryResultTable](https://github.com/hfung4/Data-Projects/blob/master/software_requirements_classification/outputs/final_model_comparison/binary_results_table.jpeg)
-![binaryResultPlot](https://github.com/hfung4/Data-Projects/blob/master/software_requirements_classification/outputs/final_model_comparison/binary_classification_results_all.jpeg)
-
+![binaryResultPlot](https://github.com/hfung4/Data-Projects/blob/master/software_requirements_classification/outputs/final_model_comparison/binary_classification_results_all.jpeg) 
+<br><br>
 
 
 
