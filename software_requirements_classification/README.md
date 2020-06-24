@@ -83,7 +83,7 @@
 
 
 
-![result1](../master/Data-Projects/software_requirements_classification/outputs/final_model_comparison/binary_classification_results_all.jpeg)
+![result1](https://github.com/hfung4/Data-Projects/blob/master/software_requirements_classification/outputs/final_model_comparison/binary_classification_results_all.jpeg)
 
 ![binary_classification_results_all](C:\Users\henry_dw8mcdk\Documents\github\Data-Projects\software_requirements_classification\outputs\final_model_comparison\binary_classification_results_all.jpeg)
 
