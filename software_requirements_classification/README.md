@@ -82,20 +82,12 @@
 **Binary Classification: Model Comparison**
 
 
-
-![result1](https://github.com/hfung4/Data-Projects/blob/master/software_requirements_classification/outputs/final_model_comparison/binary_classification_results_all.jpeg)
-
-![binary_classification_results_all](C:\Users\henry_dw8mcdk\Documents\github\Data-Projects\software_requirements_classification\outputs\final_model_comparison\binary_classification_results_all.jpeg)
-
-
-
+![binaryResultTable](https://github.com/hfung4/Data-Projects/blob/master/software_requirements_classification/outputs/final_model_comparison/binary_results_table.jpeg)
+![binaryResultPlot](https://github.com/hfung4/Data-Projects/blob/master/software_requirements_classification/outputs/final_model_comparison/binary_classification_results_all.jpeg)
 
 
 **Multiclass Classification: Model Comparison**
 
-![image-20200624114252668](C:\Users\henry_dw8mcdk\AppData\Roaming\Typora\typora-user-images\image-20200624114252668.png)
-
-
-
-![multiclass_classification_results_all](C:\Users\henry_dw8mcdk\Documents\github\Data-Projects\software_requirements_classification\outputs\final_model_comparison\multiclass_classification_results_all.jpeg)
+![multiclassResultTable](https://github.com/hfung4/Data-Projects/blob/master/software_requirements_classification/outputs/final_model_comparison/multiclass_results_table.jpeg)
+![multiclassResultPlot](https://github.com/hfung4/Data-Projects/blob/master/software_requirements_classification/outputs/final_model_comparison/multiclass_classification_results_all.jpeg)
 
