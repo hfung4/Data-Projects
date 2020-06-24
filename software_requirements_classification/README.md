@@ -75,12 +75,14 @@
 - For larger datasets, perhaps the performance difference would be wider.  One distinct advantage of CNN is that it automatically identify features that are informative in making predictions; thus, we don't have to learn the bigrams and trigrams engineer these features ourselves.
 - All models require hyperparameters tuning, some more than others.
 - SVC is a simple and the fastest model to train.  I would go with SVC in this case since its performance is almost as good as CNN and Adaboost.
-- Pre-trained word embeddings compensate for the small amount of train data-- note that for the multiclass classification problem, I have less than 400 train observations to train my CNN! \
+- Pre-trained word embeddings compensate for the small amount of train data-- note that for the multiclass classification problem, I have less than 400 train observations to train my CNN! 
 
 
 
 
-**Binary Classification: Model Comparison**\
+
+**Binary Classification: Model Comparison**
+
 
 
 ![binaryResultTable](https://github.com/hfung4/Data-Projects/blob/master/software_requirements_classification/outputs/final_model_comparison/binary_results_table.jpeg)
@@ -92,7 +94,8 @@
 
 
 
-**Multiclass Classification: Model Comparison**\
+**Multiclass Classification: Model Comparison**
+
 
 ![multiclassResultTable](https://github.com/hfung4/Data-Projects/blob/master/software_requirements_classification/outputs/final_model_comparison/multiclass_results_table.jpeg)
 ![multiclassResultPlot](https://github.com/hfung4/Data-Projects/blob/master/software_requirements_classification/outputs/final_model_comparison/multiclass_classification_results_all.jpeg)
