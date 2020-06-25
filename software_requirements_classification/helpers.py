@@ -14,7 +14,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.decomposition import TruncatedSVD
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import accuracy_score, recall_score, precision_score
-from sklearn.metrics import roc_auc_score, f1_score, roc_curve, auc, confusion_matrix
+from sklearn.metrics import f1_score, confusion_matrix
 
 # load spaCy
 nlp = spacy.load('en_core_web_sm')
@@ -359,7 +359,7 @@ def models_training(dataset_name, wv_type, X_train, y_train, X_test, y_test, mod
 '''This function performs text processing, builds the word index, and creates the test harness and embedding matrix '''
 
 
-def keras_processing(texts, labels, max_words, maxlen):
+def keras_processing(texts, labels, max_words, maxlen, word_vectors):
     # one-hot encode ("categorical encode") the labels
     labels = to_categorical(labels)  # an array of array[0,1]
     # Convert labels to an array
