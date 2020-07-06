@@ -44,3 +44,4 @@ Thumbs.db
 *.csv
 *.pyc
 .idea
+*.pkl
