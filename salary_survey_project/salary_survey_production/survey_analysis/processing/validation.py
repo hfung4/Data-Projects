@@ -7,13 +7,16 @@ from pydantic import BaseModel, ValidationError
 from survey_analysis.config.core import config
 from survey_analysis.processing.data_manager import clean_reformat_data
 
+
 def drop_na_inputs(*, input_data: pd.DataFrame) -> pd.DataFrame:
     """Check model inputs for na values and filter."""
     validated_data = input_data.copy()
     # Amongst the selected features in the new dataset, what are
-    # the variables that have missing values (but have no missing values in the original train data)
+    # the variables that have missing values (but have no missing
+    # values in the original train data)
     new_vars_with_na = [
-        var for var in config.model_config.features
+        var
+        for var in config.model_config.features
         if var not in config.model_config.CATEGORICAL_VARS_WITH_NA_MISSING
         and validated_data[var].isnull().sum() > 0
     ]
@@ -60,7 +63,6 @@ class survey_data_input_schema(BaseModel):
     education: Optional[str]
     gender: Optional[str]
     race: Optional[str]
-
 
 
 class multiple_survey_data_inputs(BaseModel):

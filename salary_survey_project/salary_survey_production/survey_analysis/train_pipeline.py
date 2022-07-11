@@ -1,17 +1,21 @@
-# This module performs train test split, train the gradient boosted tree model and persist the pipeline
+"""
+This module performs train test split, train the gradient
+boosted tree model and persist the pipeline
+"""
 
 import numpy as np
+from sklearn.dummy import DummyRegressor
+from sklearn.metrics import mean_squared_error
+from sklearn.model_selection import train_test_split
+
 from survey_analysis.config.core import config
-from survey_analysis.processing.data_manager import save_pipeline
-from survey_analysis.evaluate_pipeline import comparison_plot
 from survey_analysis.pipeline import salary_pipeline
 from survey_analysis.processing.data_manager import (
+    clean_reformat_data,
     load_dataset,
-    clean_reformat_data
+    save_pipeline,
 )
-from sklearn.model_selection import train_test_split
-from sklearn.dummy import DummyRegressor
-
+from survey_analysis.processing.plotting import comparison_plot
 
 
 def run_training():
@@ -27,7 +31,7 @@ def run_training():
         data[config.model_config.features],  # features
         data[config.model_config.target],  # target
         test_size=config.model_config.TEST_SIZE,
-        random_state=config.model_config.RANDOM_STATE
+        random_state=config.model_config.RANDOM_STATE,
     )
 
     # log transform the dependent variable
@@ -38,14 +42,19 @@ def run_training():
     dummy_regr = DummyRegressor(strategy="median")
     dummy_regr.fit(X_train, y_train)
 
+    # Get baseline performance
+    y_pred_baseline = dummy_regr.predict(X_test)
+    baseline_rmse = round(mean_squared_error(y_test, y_pred_baseline, squared=False), 2)
+
     # fit pipeline
-    salary_pipeline.fit(X_train,y_train)
+    salary_pipeline.fit(X_train, y_train)
+
+    # Get the test rmse (from validation set approach) of trained pipeline
+    y_pred_gb = salary_pipeline.predict(X_test)
+    gb_rmse = round(mean_squared_error(y_test, y_pred_gb, squared=False), 2)
 
     # evaluate performance of model and generate a summary of performance
-    comparison_plot(pipeline_to_evaluate=salary_pipeline,
-                    baseline_model = dummy_regr,
-                    X_test = X_test,
-                    y_test= y_test)
+    comparison_plot(pipeline_metric=gb_rmse, baseline_metric=baseline_rmse)
 
     # Persist the trained pipeline
     save_pipeline(pipeline_to_persist=salary_pipeline)

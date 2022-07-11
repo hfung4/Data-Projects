@@ -3,9 +3,9 @@ from typing import List
 import pandas as pd
 from sklearn.base import BaseEstimator, TransformerMixin
 
+# Categorical variables encoding (the encoding of categorical
+# variables that already have ordered levels from strings to numeric)
 
-# Categorical variables encoding (the encoding of categorical variables that already have ordered
-# levels from strings to numeric)
 
 class Mapper(BaseEstimator, TransformerMixin):
     """
@@ -25,17 +25,18 @@ class Mapper(BaseEstimator, TransformerMixin):
             raise ValueError("variables should be a list")
 
         if not isinstance(mappings, dict):
-            raise ValueError('mapping should be a dictionary')
+            raise ValueError("mapping should be a dictionary")
 
         # set attributes at instantiation of class
         self.variables = variables
         self.mappings = mappings
 
     def fit(self, X: pd.DataFrame, y: pd.Series = None):
-        """ Fit
+        """Fit
         Args:
             X (DataFrame): a input dataframe of features to train the transformer
-            y (DataFrame): a input Series of response variable to train the transformer (optional)
+            y (DataFrame): a input Series of response
+             variable to train the transformer (optional)
 
         Returns:
             self
@@ -46,7 +47,7 @@ class Mapper(BaseEstimator, TransformerMixin):
         return self
 
     def transform(self, X: pd.DataFrame) -> pd.DataFrame:
-        """ Transform
+        """Transform
 
         Args:
             X (DataFrame): a input dataframe of features to be transformed

@@ -1,10 +1,9 @@
-''' This module contains various helper functions for data processing and modelling'''
+""" This module contains various helper functions for data processing and modelling"""
 
-from typing import List
 import pandas as pd
 
 
-def parse_num_get_levels(df:pd.DataFrame, col:str):
+def parse_num_get_levels(df: pd.DataFrame, col: str):
     """
     parse_num_get_levels: this function takes a variable from a dataframe, and
     then parse the first integer in each value (e.g., 18-35 ====> get 18).
@@ -20,29 +19,29 @@ def parse_num_get_levels(df:pd.DataFrame, col:str):
     """
 
     # Get ordered levels based on the first integer of each level (e.g. 18-35 ===> 18)
-    ordered_levels = (df[col]
-                      .value_counts()
-                      .reset_index()
-                      .rename(columns={'index': 'levels'})
-                      # extract the first one (or more) digits
-                      .assign(num_levels=lambda x: x.levels.str.extract(r'(\d+)').astype(int))
-                      .sort_values("num_levels")
-                      .levels
-                      .tolist())
+    ordered_levels = (
+        df[col]
+        .value_counts()
+        .reset_index()
+        .rename(columns={"index": "levels"})
+        # extract the first one (or more) digits
+        .assign(num_levels=lambda x: x.levels.str.extract(r"(\d+)").astype(int))
+        .sort_values("num_levels")
+        .levels.tolist()
+    )
 
     # create categorical type
     categorical_type = pd.api.types.CategoricalDtype(
-        categories=ordered_levels,
-        ordered=True)
+        categories=ordered_levels, ordered=True
+    )
 
     # convert col to ordered categorical type
     df[col] = df[col].astype(categorical_type)
 
 
-def remove_outlier(df_in:pd.DataFrame,
-                   col:str,
-                   lwr_bound:int=None,
-                   upr_bound:int=None)->pd.DataFrame:
+def remove_outlier(
+    df_in: pd.DataFrame, col: str, lwr_bound: int = None, upr_bound: int = None
+) -> pd.DataFrame:
     """
     remove_outlier: remove outliers (based on a variable). All rows
     # with values (of the variable) that is outside of q1+/- 1.5*iqr is removed
