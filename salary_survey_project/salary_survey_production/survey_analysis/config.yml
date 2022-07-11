@@ -1,0 +1,110 @@
+# Package Overview
+package_name: survey_analysis
+
+# Data Files
+training_data_file: survey.csv
+test_data_file: test_data.csv
+
+
+# pipeline saved file name
+saved_pipeline_filename: salary_gb_pipeline_v
+
+# model performance plot filename
+model_perf_plot_filename: rmse_baseline_vs_gb_v
+
+
+# Variables
+target: annual_salary
+
+# selected features
+features:
+  - age_category
+  - industry
+  - state
+  - city
+  - overall_experience
+  - in_field_experience
+  - education
+  - gender
+  - race
+
+# set train/test split
+TEST_SIZE: 0.1
+
+# to set the random seed
+RANDOM_STATE: 10
+
+# optimal parameters for gradient boosted tree from GridSearchCV
+learning_rate: 0.05
+max_depth: 3
+max_features: 0.3
+n_estimators: 1000
+subsample: 1.0
+
+# Custom lower bound for outlier removal
+OUTLIER_LWR_BOUND: 5000
+
+# Variables that I retain the X most frequent level and lump the rest as "Other"
+CAT_VARS_10_MOST_FREQ:
+    - state
+    - city
+    - industry
+
+CAT_VARS_2_MOST_FREQ:
+  - gender
+
+CAT_VARS_4_MOST_FREQ:
+  - race
+
+
+# impute missing values with "missing"
+CATEGORICAL_VARS_WITH_NA_MISSING:
+  - industry
+  - state
+  - city
+  - education
+  - gender
+  - race
+
+# ordinal variables to be recoded (strings to integer)
+EXPERIENCE_VARS:
+  - overall_experience
+  - in_field_experience
+
+AGE_VARS:
+  - age_category
+
+
+# nominal variables to be one-hot encoded
+NOMINAL_VARIABLES:
+  - industry
+  - state
+  - city
+  - gender
+  - race
+  - education
+
+# mapping dictionaries
+
+# Experience related variables
+DICT_EXPERIENCE_ORDERED_LEVELS:
+  1 year or less: 0
+  2-4 years: 1
+  5-7 years: 2
+  8-10 years: 3
+  11-20 years: 4
+  21-30 years: 5
+  31-40 years: 6
+  41 years or more: 7
+
+# Age 
+DICT_AGE_ORDERED_LEVELS:
+  17 or under: 0
+  18-24: 1
+  25-34: 2
+  35-44: 3
+  45-54: 4
+  55-64: 5
+  65 or over: 6
+
+
