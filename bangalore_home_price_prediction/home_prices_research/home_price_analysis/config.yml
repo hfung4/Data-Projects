@@ -1,0 +1,44 @@
+# Package Overview
+PACKAGE_NAME: banglore_home_prices_model
+
+# Data Files
+RAW_DATA_FILE: house_prices.csv
+
+# pipeline saved file name
+SAVED_PIPELINE_FILENAME: home_prices_pipeline_v
+
+# Variables
+OUTCOME_VARIABLE: price
+
+# selected features
+FEATURES:
+  - area_type
+  - availability
+  - size
+  - total_sqft
+  - bath
+
+# set train/test split
+TEST_SIZE: 0.2
+
+# to set the random seed
+RANDOM_STATE: 10
+
+# data processing parameters
+AREA_TYPE_RETAIN: 2
+SQFT_PER_SQ_METER: 10.764
+SQFT_PER_SQ_YARD: 9.0 
+
+VARS_MISSING_IMPUTED:
+  - bath
+
+# Nominal variables
+NOMINAL_VARS:
+  - area_type
+  - availability
+
+# Continuous variables
+CONTINUOUS_VARS:
+  - size
+  - total_sqft
+  - bath

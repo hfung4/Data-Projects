@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: tid-salary-survey-prediction
+Version: 0.0.1
+Summary: Train a gradient boosted tree to predict the salary of US residents from a salary-related survey dataset
+Home-page: https://github.com/hfung4/Data-Projects/tree/master/salary_survey_project/salary_survey_production
+Author: HenryF
+Author-email: henryhfung21@gmail.com
+License: BSD-3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.9.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+Train a gradient boosted tree to predict the salary of US residents from a salary-related survey dataset

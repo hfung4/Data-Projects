@@ -1,0 +1,18 @@
+include *.txt
+include *.md
+include *.pkl
+recursive-include ./survey_analysis/*
+
+include survey_analysis/datasets/train.csv
+include survey_analysis/datasets/test.csv
+include survey_analysis/trained_models/*.pkl
+include survey_analysis/VERSION
+include survey_analysis/config.yml
+
+include ./requirements/requirements.txt
+include ./requirements/test_requirements.txt
+exclude *.log
+exclude *.cfg
+
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]

@@ -1,0 +1,59 @@
+"""
+pipeline.py
+
+Data processing steps:
+- size: remove BNR and bedroom text, convert to float, and then remove outliers
+- area_type: retain the top 2 levels and combine the rest to a level called "Other"
+- availability: encode levels to "Ready to move" and "Not ready to move"
+- total_sqft: process total_sqft
+- one-hot encode all categorical variables
+"""
+
+
+from feature_engine.encoding import OneHotEncoder
+from sklearn.preprocessing import StandardScaler
+from feature_engine.wrappers import SklearnTransformerWrapper
+from feature_engine.imputation import MeanMedianImputer
+
+from sklearn.pipeline import Pipeline
+#from sklearn.ensemble import GradientBoostingRegressor
+
+from home_price_analysis.config.core import config
+from home_price_analysis.processing import features as pp
+
+price_pipeline = Pipeline(
+    [
+        # == Imputation ==
+        (
+            "median_imputation",
+            MeanMedianImputer(imputation_method="median",
+                              variables = config.model_config.VARS_MISSING_IMPUTED
+            )
+        ),
+        # === Processing features ===
+        (
+            "process_area_type",
+            pp.area_type_step()
+        ),
+        (
+            "process_availability",
+            pp.avail_step()
+        ),
+        
+        # === One-hot encoding (nominal variables) ===
+       (
+            "one_hot_encoder",
+            OneHotEncoder(
+                drop_last=True,  # avoid dummy variable trap
+                variables=config.model_config.NOMINAL_VARS,
+            ),
+        ),
+       
+       # === standard scalar (continuous variables) ===
+       (
+           "standard_scalar",
+           SklearnTransformerWrapper(transformer = StandardScaler(),
+                                     variables = config.model_config.CONTINUOUS_VARS)   
+       )     
+    ]
+)
