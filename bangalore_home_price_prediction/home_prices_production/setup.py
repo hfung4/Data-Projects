@@ -8,7 +8,7 @@ from setuptools import find_packages, setup
 # Package meta-data.
 NAME = "tid-home-prices-prediction"
 DESCRIPTION = "Train a xgboost model to predict housing prices in Bangalore"
-# URL =
+URL = "https://github.com/hfung4/Data-Projects/tree/master/bangalore_home_price_prediction/home_prices_production"
 EMAIL = "henryhfung21@gmail.com"
 AUTHOR = "HenryF"
 REQUIRES_PYTHON = ">=3.9.0"
@@ -47,7 +47,7 @@ setup(
     author=AUTHOR,
     author_email=EMAIL,
     python_requires=REQUIRES_PYTHON,
-    # url=URL,
+    url=URL,
     packages=find_packages(exclude=("tests",)),
     package_data={"home_price_analysis": ["VERSION"]},
     install_requires=list_reqs(),
