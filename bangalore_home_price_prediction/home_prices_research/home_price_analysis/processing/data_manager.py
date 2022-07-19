@@ -8,7 +8,15 @@ from sklearn.pipeline import Pipeline
 
 from home_price_analysis import __version__ as _version
 from home_price_analysis.config.core import RAW_DATA_DIR, TRAINED_MODEL_DIR, config
-from home_price_analysis.processing.utils import preprocessing_size, preprocessing_total_sqft
+from home_price_analysis.processing.utils import (
+    chain,
+    preprocessing_area_type,
+    preprocessing_size,
+    preprocessing_total_sqft,
+    fct_lump_location,
+    filter_bath_bedroom,
+    filter_price_per_sqft,
+)
 
 
 # This function load the raw dataset
@@ -25,7 +33,7 @@ def load_dataset(*, file_name: str) -> pd.DataFrame:
     # If raw data directory does not exist, I will make one
     if not os.path.isdir(RAW_DATA_DIR):
         os.makedirs(RAW_DATA_DIR)
-        
+
     # Import raw data
     try:
         data = pd.read_csv(Path(RAW_DATA_DIR, file_name))
@@ -33,6 +41,7 @@ def load_dataset(*, file_name: str) -> pd.DataFrame:
         "Failed to import raw training data file."
 
     return data
+
 
 def save_pipeline(*, pipeline_to_persist: object) -> object:
     """Persist the pipeline.x
@@ -55,7 +64,8 @@ def save_pipeline(*, pipeline_to_persist: object) -> object:
 
     return None
 
-def preprocess_data(df:pd.DataFrame)->pd.DataFrame:
+
+def preprocess_data(df: pd.DataFrame) -> pd.DataFrame:
     """
     This function preprocesses the size and total_sqft columns (invovles dropping NA
     and removing outliers, so it is difficult to include in sklearn pipeline)
@@ -65,16 +75,23 @@ def preprocess_data(df:pd.DataFrame)->pd.DataFrame:
         df (pd.DataFrame): input datafraome
 
     Returns:
-        data (pd.DataFrame): output dataframe
+        res (pd.DataFrame): output dataframe
     """
     data = df.copy()
-    
-    data = preprocessing_size(data)
-    data = preprocessing_total_sqft(data)
-    
-    return data
-    
-    
+
+    res = chain(
+        data,
+        preprocessing_size,
+        preprocessing_total_sqft,
+        preprocessing_area_type,
+        fct_lump_location,
+        filter_bath_bedroom,
+        filter_price_per_sqft,
+    )
+
+    return res
+
+
 def remove_old_pipelines(*, files_to_keep: t.List[str]) -> None:
     """
     Remove old model pipelines.

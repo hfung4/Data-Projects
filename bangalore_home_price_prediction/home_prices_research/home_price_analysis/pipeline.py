@@ -16,7 +16,8 @@ from feature_engine.wrappers import SklearnTransformerWrapper
 from feature_engine.imputation import MeanMedianImputer
 
 from sklearn.pipeline import Pipeline
-#from sklearn.ensemble import GradientBoostingRegressor
+
+# from sklearn.ensemble import GradientBoostingRegressor
 
 from home_price_analysis.config.core import config
 from home_price_analysis.processing import features as pp
@@ -26,34 +27,29 @@ price_pipeline = Pipeline(
         # == Imputation ==
         (
             "median_imputation",
-            MeanMedianImputer(imputation_method="median",
-                              variables = config.model_config.VARS_MISSING_IMPUTED
-            )
+            MeanMedianImputer(
+                imputation_method="median",
+                variables=config.model_config.VARS_MISSING_IMPUTED,
+            ),
         ),
         # === Processing features ===
-        (
-            "process_area_type",
-            pp.area_type_step()
-        ),
-        (
-            "process_availability",
-            pp.avail_step()
-        ),
-        
+        ("process_area_type", pp.area_type_step()),
+        ("process_availability", pp.avail_step()),
         # === One-hot encoding (nominal variables) ===
-       (
+        (
             "one_hot_encoder",
             OneHotEncoder(
                 drop_last=True,  # avoid dummy variable trap
                 variables=config.model_config.NOMINAL_VARS,
             ),
         ),
-       
-       # === standard scalar (continuous variables) ===
-       (
-           "standard_scalar",
-           SklearnTransformerWrapper(transformer = StandardScaler(),
-                                     variables = config.model_config.CONTINUOUS_VARS)   
-       )     
+        # === standard scalar (continuous variables) ===
+        (
+            "standard_scalar",
+            SklearnTransformerWrapper(
+                transformer=StandardScaler(),
+                variables=config.model_config.CONTINUOUS_VARS,
+            ),
+        ),
     ]
 )

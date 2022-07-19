@@ -17,6 +17,7 @@ FEATURES:
   - size
   - total_sqft
   - bath
+  - location
 
 # set train/test split
 TEST_SIZE: 0.2
@@ -36,6 +37,7 @@ VARS_MISSING_IMPUTED:
 NOMINAL_VARS:
   - area_type
   - availability
+  - location
 
 # Continuous variables
 CONTINUOUS_VARS:
