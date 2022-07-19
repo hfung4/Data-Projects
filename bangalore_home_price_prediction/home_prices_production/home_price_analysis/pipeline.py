@@ -12,7 +12,6 @@ Data processing steps:
 
 import xgboost as xgb
 from feature_engine.encoding import OneHotEncoder
-from feature_engine.imputation import MeanMedianImputer
 from feature_engine.wrappers import SklearnTransformerWrapper
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
@@ -20,19 +19,8 @@ from sklearn.preprocessing import StandardScaler
 from home_price_analysis.config.core import config
 from home_price_analysis.processing import features as pp
 
-# from sklearn.ensemble import GradientBoostingRegressor
-
-
 price_pipeline = Pipeline(
     [
-        # == Imputation ==
-        (
-            "median_imputation",
-            MeanMedianImputer(
-                imputation_method="median",
-                variables=config.model_config.VARS_MISSING_IMPUTED,
-            ),
-        ),
         # === Processing features ===
         ("process_area_type", pp.area_type_step()),
         ("process_availability", pp.avail_step()),

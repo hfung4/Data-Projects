@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: tid-home-prices-prediction
-Version: 0.0.1
+Version: 0.0.2
 Summary: Train a xgboost model to predict housing prices in Bangalore
 Home-page: https://github.com/hfung4/Data-Projects/tree/master/bangalore_home_price_prediction/home_prices_production
 Author: HenryF

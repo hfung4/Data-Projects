@@ -3,7 +3,7 @@ import pandas as pd
 
 from home_price_analysis import __version__ as _version
 from home_price_analysis.config.core import config
-from home_price_analysis.processing.data_manager import load_pipeline
+from home_price_analysis.processing.data_manager import load_pipeline, preprocess_data
 from home_price_analysis.processing.validation import validate_inputs
 
 pipeline_file_name = f"{config.app_config.SAVED_PIPELINE_FILENAME}{_version}.pkl"
@@ -20,7 +20,11 @@ def make_prediction(*, input_data: pd.DataFrame) -> dict:
          no missing values in original train data
        - validate the data type of each selected feature in the new/unknown input data
     """
-    validated_data, errors = validate_inputs(input_data=input_data)
+
+    # clean and reformat data
+    pre_processed_data = preprocess_data(input_data)
+
+    validated_data, errors = validate_inputs(input_data=pre_processed_data)
 
     # Init the results dictionary
     results = {"predictions": None, "version": _version, "errors": errors}

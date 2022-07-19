@@ -8,15 +8,9 @@ from home_price_analysis.config.core import TEST_DATA_DIR, config
 from home_price_analysis.processing.data_manager import load_dataset
 
 
-@pytest.fixture
-def input_df_age():
-    df_age = pd.DataFrame(
-        {
-            "A": [1, 2, 3, 4, 5],
-            "B": ["18-35", "60-79", "36-59", "80 and over", "17 and under"],
-        }
-    )
-    return df_age
+@pytest.fixture()
+def raw():
+    return load_dataset(file_name=config.app_config.RAW_DATA_FILE)
 
 
 @pytest.fixture()

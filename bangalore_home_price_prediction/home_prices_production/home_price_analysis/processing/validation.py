@@ -30,8 +30,6 @@ def drop_na_inputs(*, input_data: pd.DataFrame) -> pd.DataFrame:
 def validate_inputs(*, input_data: pd.DataFrame) -> Tuple[pd.DataFrame, Optional[dict]]:
     """Check model inputs for unprocessable values."""
 
-    # clean and reformat data
-    input_data = preprocess_data(input_data)
     # get features subset
     relevant_data = input_data[config.model_config.FEATURES].copy()
 

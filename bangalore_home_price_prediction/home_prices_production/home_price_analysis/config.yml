@@ -21,6 +21,7 @@ FEATURES:
   - size
   - total_sqft
   - bath
+  - location
 
 # set train/test split
 TEST_SIZE: 0.2
@@ -44,6 +45,7 @@ VARS_WITH_NA_MISSING:
 NOMINAL_VARS:
   - area_type
   - availability
+  - location
 
 # Continuous variables
 CONTINUOUS_VARS:
@@ -52,10 +54,10 @@ CONTINUOUS_VARS:
   - bath
 
 # model hyperparameters
-COLSAMPLE_BYTREE: 0.5
+COLSAMPLE_BYTREE: 0.6
 MAX_DEPTH: 20
-SUBSAMPLE: 0.4
+SUBSAMPLE: 1.0
 N_ESTIMATORS: 500
-GAMMA: 0.1
-LEARNING_RATE: 0.015
+GAMMA: 0.05
+LEARNING_RATE: 0.05
 

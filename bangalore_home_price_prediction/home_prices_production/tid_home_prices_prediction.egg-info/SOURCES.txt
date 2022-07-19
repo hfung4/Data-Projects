@@ -13,6 +13,7 @@ home_price_analysis/predict.py
 home_price_analysis/train_pipeline.py
 home_price_analysis/config/__init__.py
 home_price_analysis/config/core.py
+home_price_analysis/datasets/processed/columns.json
 home_price_analysis/datasets/raw/house_prices.csv
 home_price_analysis/datasets/test/test_data.csv
 home_price_analysis/processing/__init__.py
@@ -21,7 +22,7 @@ home_price_analysis/processing/features.py
 home_price_analysis/processing/plotting.py
 home_price_analysis/processing/utils.py
 home_price_analysis/processing/validation.py
-home_price_analysis/trained_models/home_prices_pipeline_xgb_v0.0.1.pkl
+home_price_analysis/trained_models/home_prices_pipeline_xgb_v0.0.2.pkl
 tid_home_prices_prediction.egg-info/PKG-INFO
 tid_home_prices_prediction.egg-info/SOURCES.txt
 tid_home_prices_prediction.egg-info/dependency_links.txt

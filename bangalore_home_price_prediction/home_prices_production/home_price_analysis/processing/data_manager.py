@@ -10,6 +10,9 @@ from home_price_analysis import __version__ as _version
 from home_price_analysis.config.core import RAW_DATA_DIR, TRAINED_MODEL_DIR, config
 from home_price_analysis.processing.utils import (
     chain,
+    fct_lump_location,
+    filter_bath_bedroom,
+    filter_price_per_sqft,
     preprocessing_area_type,
     preprocessing_size,
     preprocessing_total_sqft,
@@ -77,7 +80,13 @@ def preprocess_data(df: pd.DataFrame) -> pd.DataFrame:
     data = df.copy()
 
     res = chain(
-        data, preprocessing_size, preprocessing_total_sqft, preprocessing_area_type
+        data,
+        preprocessing_size,
+        preprocessing_total_sqft,
+        preprocessing_area_type,
+        fct_lump_location,
+        filter_bath_bedroom,
+        filter_price_per_sqft,
     )
 
     return res

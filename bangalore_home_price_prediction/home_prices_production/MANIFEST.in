@@ -4,6 +4,7 @@ include *.pkl
 recursive-include ./home_price_analysis/*
 
 include home_price_analysis/datasets/raw/house_prices.csv
+include home_price_analysis/datasets/processed/columns.json
 include home_price_analysis/datasets/test/test_data.csv
 include home_price_analysis/trained_models/*.pkl
 include home_price_analysis/VERSION
