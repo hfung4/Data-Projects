@@ -11,7 +11,7 @@ pipeline_file_name = f"{config.app_config.SAVED_PIPELINE_FILENAME}{_version}.pkl
 _price_pipe = load_pipeline(file_name=pipeline_file_name)
 
 
-def make_prediction(*, input_data: pd.DataFrame) -> dict:
+def make_prediction(*, input_data: pd.DataFrame, raw_input: bool = True) -> dict:
 
     """Make a prediction using a saved model pipeline.
     Perform the following for the new/unknown input data (with features only, no price):
@@ -21,8 +21,12 @@ def make_prediction(*, input_data: pd.DataFrame) -> dict:
        - validate the data type of each selected feature in the new/unknown input data
     """
 
-    # clean and reformat data
-    pre_processed_data = preprocess_data(input_data)
+    # clean and reformat data, do this only if I have raw input data
+    # and not data from a form from the UI
+    if raw_input:
+        pre_processed_data = preprocess_data(input_data)
+    else:
+        pre_processed_data = input_data
 
     validated_data, errors = validate_inputs(input_data=pre_processed_data)
 

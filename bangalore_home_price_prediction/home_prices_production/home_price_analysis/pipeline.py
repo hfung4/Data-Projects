@@ -40,7 +40,7 @@ price_pipeline = Pipeline(
                 variables=config.model_config.CONTINUOUS_VARS,
             ),
         ),
-        # === standard scalar (continuous variables) ===
+        # === model ===
         (
             "xgboost",
             xgb.XGBRegressor(

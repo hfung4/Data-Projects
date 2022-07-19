@@ -54,6 +54,7 @@ def validate_inputs(*, input_data: pd.DataFrame) -> Tuple[pd.DataFrame, Optional
 class home_price_data_input_schema(BaseModel):
     area_type: Optional[str]
     availability: Optional[str]
+    location: Optional[str]
     size: Optional[int]
     total_sqft: Optional[float]
     bath: Optional[int]
