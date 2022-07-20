@@ -6,11 +6,6 @@ from utils import get_possible_locations, area_type_map, availability_map
 app = Flask(__name__)
 
 
-@app.route("/")
-def home():
-    return "Home"
-
-
 # Home page
 @app.route("/predict_home_price", methods=["GET", "POST"])
 def predict_home_price():

@@ -1,0 +1,1 @@
+# Web application that predicts the home prices in Bangalore using a xgb trained on information on 10000 homes
