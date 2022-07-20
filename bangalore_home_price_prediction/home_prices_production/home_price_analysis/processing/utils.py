@@ -138,6 +138,13 @@ def fct_lump_location(df: pd.DataFrame) -> pd.DataFrame:
     """
 
     data = df.copy()
+
+    # drop NA in location
+    df.dropna(subset=["location"], inplace=True)
+
+    # strip away all white space at the front and end
+    df["location"] = df["location"].apply(lambda x: x.strip())
+
     val_counts = df["location"].value_counts()
     # Get all locations with more than 10 observations
     keep_locations = val_counts.loc[val_counts > 10].index

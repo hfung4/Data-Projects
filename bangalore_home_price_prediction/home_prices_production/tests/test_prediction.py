@@ -10,7 +10,7 @@ from home_price_analysis.predict import make_prediction
 def test_make_prediction(test_data):
     # Given
     expected_first_prediction_value = 54
-    expected_number_of_predictions = 2608
+    expected_number_of_predictions = 2607
 
     result = make_prediction(input_data=test_data)
 

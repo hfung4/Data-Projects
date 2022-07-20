@@ -21,7 +21,7 @@ home_price_analysis/processing/features.py
 home_price_analysis/processing/plotting.py
 home_price_analysis/processing/utils.py
 home_price_analysis/processing/validation.py
-home_price_analysis/trained_models/home_prices_pipeline_xgb_v0.0.3.pkl
+home_price_analysis/trained_models/home_prices_pipeline_xgb_v0.0.4.pkl
 tid_home_prices_prediction.egg-info/PKG-INFO
 tid_home_prices_prediction.egg-info/SOURCES.txt
 tid_home_prices_prediction.egg-info/dependency_links.txt
