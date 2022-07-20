@@ -9,12 +9,12 @@ simplefilter(action="ignore", category=pd.errors.PerformanceWarning)
 
 def main():
     # load pre-processed X from flat file
-    X_preprocessed = pd.read_csv(Path("tests", "preprocessed_1.csv"))
+    X_preprocessed = pd.read_csv(Path("tests", "preprocessed.csv"))
 
     # Get input data from "form"
     area_type = "Super_built_up_Area"
     availability = "Not Ready to Move"
-    location = " Devarachikkanahalli"
+    location = "Devarachikkanahalli"
     size = 3
     total_sqft = 1250
     bath = 2

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Bangalore Home Prices Prediction Tool</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="app.css">
+</head>
+
+<body>
+    <form class="form">
+        <h2>Total Area in Square Feet</h2>
+        <input class="area" type="text" id="uiSqft" class="floatLabel" name="Squareft" value="1000">
+        <h2>Number of Bedrooms</h2>
+        <input class="area" type="text" id="uiBHK" class="intLabel" name="NumBHK" value="2">
+    </form>
+    <form class="form">
+        <h2>Number of Bathrooms</h2>
+        <input class="area" type="text" id="uiBathrooms" class="intLabel" name="NumBath" value="2">
+        <h2>Availability</h2>
+        <div class="switch-field">
+            <!--checked means this radio button is selected by default-->
+            <input type="radio" id="radio-avail-1" name="uiAvail" value="Ready to Move In" checked />
+            <label for="radio-avail-1">Ready to Move In</label>
+            <input type="radio" id="radio-avail-2" name="uiAvail" value="Not Ready to Move In" />
+            <label for="radio-avail-2">Not Ready to Move In</label>
+        </div>
+        <h2>Area Type</h2>
+        <div class="switch-field">
+            <input type="radio" id="radio-area-1" name="uiArea" value="Super built-up area" checked />
+            <label for="radio-area-1">Super built-up area</label>
+            <input type="radio" id="radio-area-2" name="uiArea" value="Built-up area" />
+            <label for="radio-area-2">Built-up area</label>
+            <input type="radio" id="radio-area-3" name="uiArea" value="Plot area" />
+            <label for="radio-area-3">Plot area</label>
+            <input type="radio" id="radio-area-4" name="uiArea" value="Carpet area" />
+            <label for="radio-area-4">Carpet area</label>
+        </div>
+
+        <h2>Location</h2>
+        <div>
+            <select class="location" name="" id="uiLocations">
+                <option value="" disabled="disabled" selected="selected">Choose a Location</option>
+                <option>Electronic City</option>
+                <option>Rajaji Nagar</option>
+            </select>
+        </div>
+        <button class="button button2" onclick="onClickedEstimatePrice()" type="button">Predict the Price!</button>
+        <div id="uiEstimatedPrice" class="result">
+            <h2></h2>
+        </div>
+
+</body>
+
+</html>

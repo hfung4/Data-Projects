@@ -1,5 +1,7 @@
-from flask import Flask, redirect, url_for, render_template, request, jsonify
+import json
+from flask import Flask, request, jsonify
 from predict import predict
+from utils import get_possible_locations, area_type_map, availability_map
 
 app = Flask(__name__)
 
@@ -9,32 +11,50 @@ def home():
     return "Home"
 
 
-@app.route("/predict_home_price", methods=["POST"])
+# Home page
+@app.route("/predict_home_price", methods=["GET", "POST"])
 def predict_home_price():
     # Get form data
-    area_type = request.form["area_type"]
-    availability = request.form["availability"]
+
+    # -1: np.nan, 0: Super built-up area, 1: Built-up area, 2: Plot area, 3: Carpet area
+    area_type_indices = int(request.form["area_type"])
+    # -1: np.nan, 0: Ready to Move In, 1: Not Ready to Move In
+    availability_indices = int(request.form["availability"])
+
     location = request.form["location"]
     size = int(request.form["size"])
     total_sqft = float(request.form["total_sqft"])
     bath = int(request.form["bath"])
 
-    # area_type = "Super_built_up_Area"
-    # availability = "Not Ready to Move"
-    # location = "Devarachikkanahalli"
-    # size = 3
-    # total_sqft = 1250
-    # bath = 2
+    # map levels of area_type and availability
+    area_type = area_type_map[area_type_indices + 1]
+    availability = availability_map[availability_indices + 1]
 
     # Predict home price with our ML model
-    pred_price = predict(area_type, availability, location, size, total_sqft, bath)
+    predictions = predict(area_type, availability, location, size, total_sqft, bath)
+
+    # pred_price is currently in np.float, need to convert this
+    # to python float so that it can be converted to a JSON string
+    # aka JSON serializable
+    # res is a 1-D list of predictions (normally there X elements in this list, where X is the
+    # number of rows in X_test)
+    pred_price = predictions[0]
+    pred_price = float(pred_price)
+    pred_price = round(pred_price, 2)
 
     # Create response
-    response = jsonify(str({"estimated_price": pred_price}))
-
+    response = jsonify({"estimated_price": pred_price})
     response.headers.add("Access-Control-Allow-Origin", "*")
 
-    # return str(pred_price)
+    return response
+
+
+# Get possible locations
+@app.route("/get_possible_locations")
+def get_locations():
+    response = jsonify({"possible_locations": get_possible_locations()})
+    response.headers.add("Access-Control-Allow-Origin", "*")
+
     return response
 
 
