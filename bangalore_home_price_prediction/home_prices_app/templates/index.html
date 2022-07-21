@@ -4,8 +4,8 @@
 <head>
     <title> Bangalore Home Prices Prediction Tool</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="app.js"></script>
-    <link rel="stylesheet" href="app.css">
+    <script type="text/javascript" src= "{{ url_for('static', filename='app.js') }}"> </script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
@@ -40,10 +40,8 @@
 
         <h2>Location</h2>
         <div>
-            <select class="location" name="" id="uiLocations">
+            <select class="location" name="uiLocations" id="uiLocations">
                 <option value="" disabled="disabled" selected="selected">Choose a Location</option>
-                <option>Electronic City</option>
-                <option>Rajaji Nagar</option>
             </select>
         </div>
         <button class="button button2" onclick="onClickedEstimatePrice()" type="button">Predict the Price!</button>

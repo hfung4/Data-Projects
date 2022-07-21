@@ -9,7 +9,7 @@ __locations = None
 def get_possible_locations():
     global __locations
 
-    locations_path = Path("server", "artifacts", "possible_locations.json")
+    locations_path = Path("utils", "artifacts", "possible_locations.json")
 
     # get the possible locations from json
     with open(locations_path, "r") as f:

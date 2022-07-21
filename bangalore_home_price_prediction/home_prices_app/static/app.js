@@ -33,8 +33,9 @@ function onClickedEstimatePrice() {
     var estPrice = document.getElementById("uiEstimatedPrice");
 
     //endpoint for price prediction
-    var url = "http://127.0.0.1:5000/predict_home_price"; //NOT using nginx
-    //var url = "/api/predict_home_price"; // using nginx
+    //var url = "http://127.0.0.1:5000/"; //NOT using nginx
+    var url = "https://ml-home-prices-predictor-api.herokuapp.com/";
+    //var url = "/api/"; // using nginx
 
     //make post call
     $.post(url, {
@@ -59,8 +60,8 @@ function onClickedEstimatePrice() {
 // to populate the drop-down menu
 function onPageLoad() {
     console.log("document loaded");
-    var url = "http://127.0.0.1:5000/get_possible_locations"; // Use if NOT using nginx
-    //var url = "/api/get_possible_locations"; // Use this if using nginx
+    //var url = "http://127.0.0.1:5000/get_possible_locations"; // Use if NOT using nginx
+    var url = "https://ml-home-prices-predictor-api.herokuapp.com/get_possible_locations"; // Use this if using nginx
     $.get(url, function (data, status) {
         console.log("We have responses from get_possible_locations request");
         if (data) {
