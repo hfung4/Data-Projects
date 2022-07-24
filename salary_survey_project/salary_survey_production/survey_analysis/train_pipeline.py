@@ -9,16 +9,20 @@ from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
 
 from survey_analysis.config.core import config
-from survey_analysis.pipeline import salary_pipeline
+from survey_analysis.pipeline import salary_pipeline, salary_pipeline_debug
 from survey_analysis.processing.data_manager import (
     clean_reformat_data,
     load_dataset,
     save_pipeline,
 )
 from survey_analysis.processing.plotting import comparison_plot
+from survey_analysis.processing.utils import create_dirs
 
 
 def run_training():
+
+    # check and create directories
+    create_dirs()
 
     # import raw data
     raw = load_dataset(file_name=config.app_config.training_data_file)
@@ -47,17 +51,23 @@ def run_training():
     baseline_rmse = round(mean_squared_error(y_test, y_pred_baseline, squared=False), 2)
 
     # fit pipeline
-    salary_pipeline.fit(X_train, y_train)
+    if config.app_config.DEBUG_PIPELINE:
+        data_pipeline = salary_pipeline_debug
+    else:
+        data_pipeline = salary_pipeline
+
+    data_pipeline.fit(X_train, y_train)
 
     # Get the test rmse (from validation set approach) of trained pipeline
-    y_pred_gb = salary_pipeline.predict(X_test)
+    y_pred_gb = data_pipeline.predict(X_test)
     gb_rmse = round(mean_squared_error(y_test, y_pred_gb, squared=False), 2)
 
     # evaluate performance of model and generate a summary of performance
     comparison_plot(pipeline_metric=gb_rmse, baseline_metric=baseline_rmse)
 
-    # Persist the trained pipeline
-    save_pipeline(pipeline_to_persist=salary_pipeline)
+    # Persist the trained pipeline (when not in DEBUG_PIPELINE mode)
+    if not config.app_config.DEBUG_PIPELINE:
+        save_pipeline(pipeline_to_persist=data_pipeline)
 
 
 if __name__ == "__main__":

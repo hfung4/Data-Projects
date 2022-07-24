@@ -7,8 +7,8 @@ from survey_analysis.predict import make_prediction
 
 def test_make_prediction(test_data):
     # Given
-    expected_first_prediction_value = 73574
-    expected_number_of_predictions = 4376
+    expected_first_prediction_value = 77400
+    expected_number_of_predictions = 4285
 
     result = make_prediction(input_data=test_data)
 

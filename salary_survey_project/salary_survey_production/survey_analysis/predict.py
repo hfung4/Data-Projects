@@ -3,7 +3,8 @@ import pandas as pd
 
 from survey_analysis import __version__ as _version
 from survey_analysis.config.core import config
-from survey_analysis.processing.data_manager import load_pipeline
+from survey_analysis.processing.data_manager import clean_reformat_data, load_pipeline
+from survey_analysis.processing.utils import create_dirs
 from survey_analysis.processing.validation import validate_inputs
 
 pipeline_file_name = f"{config.app_config.saved_pipeline_filename}{_version}.pkl"
@@ -20,7 +21,13 @@ def make_prediction(*, input_data: pd.DataFrame) -> dict:
          no missing values in original train data
        - validate the data type of each selected feature in the new/unknown input data
     """
-    validated_data, errors = validate_inputs(input_data=input_data)
+    # check and create directories
+    create_dirs()
+
+    # clean and reformat data
+    preprocessed = clean_reformat_data(input_data, new_input_data=True)
+
+    validated_data, errors = validate_inputs(input_data=preprocessed)
 
     # Init the results dictionary
     results = {"predictions": None, "version": _version, "errors": errors}

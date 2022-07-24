@@ -5,7 +5,6 @@ import pandas as pd
 from pydantic import BaseModel, ValidationError
 
 from survey_analysis.config.core import config
-from survey_analysis.processing.data_manager import clean_reformat_data
 
 
 def drop_na_inputs(*, input_data: pd.DataFrame) -> pd.DataFrame:
@@ -30,8 +29,6 @@ def drop_na_inputs(*, input_data: pd.DataFrame) -> pd.DataFrame:
 def validate_inputs(*, input_data: pd.DataFrame) -> Tuple[pd.DataFrame, Optional[dict]]:
     """Check model inputs for unprocessable values."""
 
-    # clean and reformat data
-    input_data = clean_reformat_data(input_data, new_input_data=True)
     # get features subset
     relevant_data = input_data[config.model_config.features].copy()
 
@@ -56,8 +53,7 @@ def validate_inputs(*, input_data: pd.DataFrame) -> Tuple[pd.DataFrame, Optional
 class survey_data_input_schema(BaseModel):
     age_category: Optional[str]
     industry: Optional[str]
-    state: Optional[str]
-    city: Optional[str]
+    city_state: Optional[str]
     overall_experience: Optional[str]
     in_field_experience: Optional[str]
     education: Optional[str]

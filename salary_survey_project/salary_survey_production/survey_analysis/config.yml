@@ -5,13 +5,17 @@ package_name: survey_analysis
 training_data_file: survey.csv
 test_data_file: test_data.csv
 
-
 # pipeline saved file name
 saved_pipeline_filename: salary_gb_pipeline_v
 
 # model performance plot filename
 model_perf_plot_filename: rmse_baseline_vs_gb_v
 
+# debug pipeline mode
+DEBUG_PIPELINE: True
+
+# artifact file
+processed_data_col_levels_file: processed_data_col_levels.json
 
 # Variables
 target: annual_salary
@@ -20,8 +24,7 @@ target: annual_salary
 features:
   - age_category
   - industry
-  - state
-  - city
+  - city_state
   - overall_experience
   - in_field_experience
   - education
@@ -46,8 +49,7 @@ OUTLIER_LWR_BOUND: 5000
 
 # Variables that I retain the X most frequent level and lump the rest as "Other"
 CAT_VARS_10_MOST_FREQ:
-    - state
-    - city
+    - city_state
     - industry
 
 CAT_VARS_2_MOST_FREQ:
@@ -60,8 +62,6 @@ CAT_VARS_4_MOST_FREQ:
 # impute missing values with "missing"
 CATEGORICAL_VARS_WITH_NA_MISSING:
   - industry
-  - state
-  - city
   - education
   - gender
   - race
@@ -78,8 +78,7 @@ AGE_VARS:
 # nominal variables to be one-hot encoded
 NOMINAL_VARIABLES:
   - industry
-  - state
-  - city
+  - city_state
   - gender
   - race
   - education

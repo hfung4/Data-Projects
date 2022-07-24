@@ -14,7 +14,8 @@ RAW_DATA_DIR = PACKAGE_ROOT / "datasets/raw"
 PROCESSED_DATA_DIR = PACKAGE_ROOT / "datasets/processed"
 TEST_DATA_DIR = PACKAGE_ROOT / "datasets/test"
 TRAINED_MODEL_DIR = PACKAGE_ROOT / "trained_models"
-FIGURES_DIR = PACKAGE_ROOT / "figures"
+OUTPUTS_DIR = PACKAGE_ROOT / "outputs"
+PIPELINE_DEBUG_DIR = PACKAGE_ROOT / "datasets/debug"
 
 
 class AppConfig(BaseModel):
@@ -27,6 +28,8 @@ class AppConfig(BaseModel):
     test_data_file: str
     saved_pipeline_filename: str
     model_perf_plot_filename: str
+    processed_data_col_levels_file: str
+    DEBUG_PIPELINE: bool
 
 
 class ModelConfig(BaseModel):

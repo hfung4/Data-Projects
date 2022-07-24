@@ -3,7 +3,7 @@ import pandas as pd
 import seaborn as sns
 
 from survey_analysis import __version__ as _version
-from survey_analysis.config.core import FIGURES_DIR, config
+from survey_analysis.config.core import OUTPUTS_DIR, config
 
 
 def comparison_plot(pipeline_metric: float, baseline_metric: float):
@@ -37,7 +37,7 @@ def comparison_plot(pipeline_metric: float, baseline_metric: float):
 
     # save plot
     save_file_name = f"{config.app_config.model_perf_plot_filename}{_version}.png"
-    save_path = FIGURES_DIR / save_file_name
+    save_path = OUTPUTS_DIR / save_file_name
     plt.savefig(save_path)
 
     return

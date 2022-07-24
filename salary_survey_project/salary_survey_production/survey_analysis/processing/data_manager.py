@@ -92,6 +92,20 @@ def clean_reformat_data(
         errors="raise",
     )
 
+    # Remove NA in city and state
+    transformed.dropna(subset=["city", "state"], how="any", inplace=True)
+
+    # Replace all city with common patterns of "New York City" with "New York City"
+    pattern = "|".join([r"New York$", "New york", "NYC", "nyc"])
+    transformed["city"] = transformed["city"].str.replace(
+        pattern, "New York City", regex=True
+    )
+
+    # Combine city and state into "city_state"
+    transformed["city_state"] = transformed.loc[:, ["city", "state"]].agg(
+        "-".join, axis="columns"
+    )
+
     # Remove outliers (annual salary)
     # We will not run this function if the dataset (new/unknown)
     # does not have the dependent variable-- "annual_salary"

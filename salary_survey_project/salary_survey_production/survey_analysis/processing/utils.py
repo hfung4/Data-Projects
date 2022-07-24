@@ -1,6 +1,17 @@
 """ This module contains various helper functions for data processing and modelling"""
 
+import os
+
 import pandas as pd
+
+from survey_analysis.config.core import (
+    OUTPUTS_DIR,
+    PIPELINE_DEBUG_DIR,
+    PROCESSED_DATA_DIR,
+    RAW_DATA_DIR,
+    TEST_DATA_DIR,
+    TRAINED_MODEL_DIR,
+)
 
 
 def parse_num_get_levels(df: pd.DataFrame, col: str):
@@ -70,3 +81,34 @@ def remove_outlier(
     # Filter out outliers
     df_out = df_in.loc[(df_in[col] > lwr_bound) & (df_in[col] < upr_bound)]
     return df_out
+
+
+def create_dirs():
+    """
+    This function check if a directory exist, if not it will create it.
+    We need this function because some directories will not exist in
+    the project directory (e.g., directories that contains .csv, which
+    we include in .gitignore)
+
+    Args:
+        None
+
+    Returns:
+        None
+    """
+    l_dir_to_check = [
+        RAW_DATA_DIR,
+        PROCESSED_DATA_DIR,
+        TEST_DATA_DIR,
+        TRAINED_MODEL_DIR,
+        OUTPUTS_DIR,
+        PIPELINE_DEBUG_DIR,
+    ]
+
+    for d in l_dir_to_check:
+        CHECK_FOLDER = os.path.isdir(d)
+
+        # If folder doesn't exist, then create it.
+        if not CHECK_FOLDER:
+            os.makedirs(d)
+            print(f"created folder: {d}")
