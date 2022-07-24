@@ -12,7 +12,7 @@ pipeline_file_name = f"{config.app_config.saved_pipeline_filename}{_version}.pkl
 _salary_pipe = load_pipeline(file_name=pipeline_file_name)
 
 
-def make_prediction(*, input_data: pd.DataFrame) -> dict:
+def make_prediction(*, input_data: pd.DataFrame, form_data: bool = False) -> dict:
 
     """Make a prediction using a saved model pipeline.
     Perform the following for the new/unknown input data (with features only, no salary):
@@ -21,11 +21,14 @@ def make_prediction(*, input_data: pd.DataFrame) -> dict:
          no missing values in original train data
        - validate the data type of each selected feature in the new/unknown input data
     """
-    # check and create directories
-    create_dirs()
+    if not form_data:
+        # check and create directories
+        create_dirs()
 
-    # clean and reformat data
-    preprocessed = clean_reformat_data(input_data, new_input_data=True)
+        # clean and reformat data
+        preprocessed = clean_reformat_data(input_data, new_input_data=True)
+    else:
+        preprocessed = input_data
 
     validated_data, errors = validate_inputs(input_data=preprocessed)
 
