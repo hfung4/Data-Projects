@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: tid-salary-survey-prediction
-Version: 0.0.1
+Version: 0.0.2
 Summary: Train a gradient boosted tree to predict the salary of US residents from a salary-related survey dataset
 Home-page: https://github.com/hfung4/Data-Projects/tree/master/salary_survey_project/salary_survey_production
 Author: HenryF

@@ -12,7 +12,7 @@ saved_pipeline_filename: salary_gb_pipeline_v
 model_perf_plot_filename: rmse_baseline_vs_gb_v
 
 # debug pipeline mode
-DEBUG_PIPELINE: True
+DEBUG_PIPELINE: False
 
 # artifact file
 processed_data_col_levels_file: processed_data_col_levels.json
