@@ -4,8 +4,6 @@
 
 Python, Flask, deployed on Heroku
 
-
-
 ## Description
 
 - Processed data on Bangalore home sales, performed feature selection and engineering, and build data pipeline to predict home prices.
@@ -14,9 +12,9 @@ Python, Flask, deployed on Heroku
 
 - Use the package as a dependency for a simple web app (built with Flask, html, css, js)
 
+- The repo for the web app is: [GitHub - hfung4/bangalore_home_prices_app: Deployed a ML model that predicts home prices from Bangalore](https://github.com/hfung4/bangalore_home_prices_app)
+
 - Deployed web application on Heroku: [Bangalore Home Prices Prediction Tool](https://ml-home-prices-predictor-api.herokuapp.com/ "https://ml-home-prices-predictor-api.herokuapp.com/")
-
-
 
 ## Setup
 
