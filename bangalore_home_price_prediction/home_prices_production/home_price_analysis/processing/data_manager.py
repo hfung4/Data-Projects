@@ -79,6 +79,8 @@ def preprocess_data(df: pd.DataFrame) -> pd.DataFrame:
     """
     data = df.copy()
 
+    # Can also use the pipe() function
+    # res = data.pipe(preprocessing_size).pipe(preprocessing_total_sqft)...
     res = chain(
         data,
         preprocessing_size,
