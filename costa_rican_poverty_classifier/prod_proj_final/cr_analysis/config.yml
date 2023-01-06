@@ -1,0 +1,370 @@
+# App level config
+
+# Package Overview
+package_name: cr_analysis
+
+# Data Files
+train_data_file: train.csv
+test_data_file: test.csv
+interim_data_file: interim.pkl
+
+# pipeline saved file name
+saved_pipeline_filename: "cr_pipeline_v"
+
+# Variable categories ------------------------
+
+# id variables
+id_:
+  - "Id"
+  - "idhogar"
+  - "Target"
+
+# boolean variables at the individual level
+ind_bool:
+  - "v18q"
+  - "dis"
+  - "male"
+  - "female"
+  - "estadocivil1"
+  - "estadocivil2"
+  - "estadocivil3"
+  - "estadocivil4"
+  - "estadocivil5"
+  - "estadocivil6"
+  - "estadocivil7"
+  - "parentesco1"
+  - "parentesco2"
+  - "parentesco3"
+  - "parentesco4"
+  - "parentesco5"
+  - "parentesco6"
+  - "parentesco7"
+  - "parentesco8"
+  - "parentesco9"
+  - "parentesco10"
+  - "parentesco11"
+  - "parentesco12"
+  - "instlevel1"
+  - "instlevel2"
+  - "instlevel3"
+  - "instlevel4"
+  - "instlevel5"
+  - "instlevel6"
+  - "instlevel7"
+  - "instlevel8"
+  - "instlevel9"
+  - "mobilephone"
+
+# Ordinal variables at the individual level
+ind_ordered:
+  - "rez_esc"
+  - "escolari"
+  - "age"
+
+# Boolean variables at the household level
+hh_bool:
+  - "hacdor"
+  - "hacapo"
+  - "v14a"
+  - "refrig"
+  - "paredblolad"
+  - "paredzocalo"
+  - "paredpreb"
+  - "pisocemento"
+  - "pareddes"
+  - "paredmad"
+  - "paredzinc"
+  - "paredfibras"
+  - "paredother"
+  - "pisomoscer"
+  - "pisoother"
+  - "pisonatur"
+  - "pisonotiene"
+  - "pisomadera"
+  - "techozinc"
+  - "techoentrepiso"
+  - "techocane"
+  - "techootro"
+  - "cielorazo"
+  - "abastaguadentro"
+  - "abastaguafuera"
+  - "abastaguano"
+  - "public"
+  - "planpri"
+  - "noelec"
+  - "coopele"
+  - "sanitario1"
+  - "sanitario2"
+  - "sanitario3"
+  - "sanitario5"
+  - "sanitario6"
+  - "energcocinar1"
+  - "energcocinar2"
+  - "energcocinar3"
+  - "energcocinar4"
+  - "elimbasu1"
+  - "elimbasu2"
+  - "elimbasu3"
+  - "elimbasu4"
+  - "elimbasu5"
+  - "elimbasu6"
+  - "epared1"
+  - "epared2"
+  - "epared3"
+  - "etecho1"
+  - "etecho2"
+  - "etecho3"
+  - "eviv1"
+  - "eviv2"
+  - "eviv3"
+  - "tipovivi1"
+  - "tipovivi2"
+  - "tipovivi3"
+  - "tipovivi4"
+  - "tipovivi5"
+  - "computer"
+  - "television"
+  - "lugar1"
+  - "lugar2"
+  - "lugar3"
+  - "lugar4"
+  - "lugar5"
+  - "lugar6"
+  - "area1"
+  - "area2"
+  - "v2a1_missing"
+
+# Ordinal variables at the household level
+hh_ordered:
+  - "rooms"
+  - "r4h1"
+  - "r4h2"
+  - "r4h3"
+  - "r4m1"
+  - "r4m2"
+  - "r4m3"
+  - "r4t1"
+  - "r4t2"
+  - "r4t3"
+  - "v18q1"
+  - "tamhog"
+  - "tamviv"
+  - "hhsize"
+  - "hogar_nin"
+  - "hogar_adul"
+  - "hogar_mayor"
+  - "hogar_total"
+  - "bedrooms"
+  - "qmobilephone"
+
+# Continuous variables at the household level
+hh_cont:
+  - "v2a1"
+  - "dependency"
+  - "edjefe"
+  - "edjefa"
+  - "meaneduc"
+  - "overcrowding"
+
+# squared variables
+sqr_:
+  - "SQBescolari"
+  - "SQBage"
+  - "SQBhogar_total"
+  - "SQBedjefe"
+  - "SQBhogar_nin"
+  - "SQBovercrowding"
+  - "SQBdependency"
+  - "SQBmeaned"
+  - "agesq"
+
+redundant_household_vars:
+  - "tamhog"
+  - "hogar_total"
+  - "r4t3"
+
+redundant_elec_vars:
+  - noelec
+  - coopele
+  - public
+  - planpri
+
+# aggregated features (from individual features) that are selected
+selected_ind_agg_features:
+  - "v18q-min"
+  - "v18q-sum"
+  - "v18q-count"
+  - "v18q-std"
+  - "v18q-range_"
+  - "dis-min"
+  - "dis-max"
+  - "dis-sum"
+  - "female-min"
+  - "female-max"
+  - "female-sum"
+  - "female-std"
+  - "female-range_"
+  - "estadocivil1-min"
+  - "estadocivil1-max"
+  - "estadocivil1-sum"
+  - "estadocivil2-min"
+  - "estadocivil2-max"
+  - "estadocivil2-std"
+  - "estadocivil3-min"
+  - "estadocivil3-max"
+  - "estadocivil3-std"
+  - "estadocivil4-min"
+  - "estadocivil4-max"
+  - "estadocivil5-min"
+  - "estadocivil5-max"
+  - "estadocivil5-sum"
+  - "estadocivil6-min"
+  - "estadocivil6-max"
+  - "estadocivil7-min"
+  - "estadocivil7-max"
+  - "estadocivil7-sum"
+  - "estadocivil7-std"
+  - "parentesco1-min"
+  - "parentesco1-max"
+  - "parentesco1-std"
+  - "parentesco2-min"
+  - "parentesco2-max"
+  - "parentesco2-std"
+  - "parentesco3-min"
+  - "parentesco3-max"
+  - "parentesco3-sum"
+  - "parentesco4-min"
+  - "parentesco4-max"
+  - "parentesco4-sum"
+  - "parentesco5-min"
+  - "parentesco5-max"
+  - "parentesco6-min"
+  - "parentesco6-max"
+  - "parentesco6-sum"
+  - "parentesco7-min"
+  - "parentesco7-max"
+  - "parentesco8-min"
+  - "parentesco8-max"
+  - "parentesco9-min"
+  - "parentesco9-max"
+  - "parentesco9-sum"
+  - "parentesco10-min"
+  - "parentesco10-max"
+  - "parentesco11-min"
+  - "parentesco11-max"
+  - "parentesco11-sum"
+  - "parentesco12-min"
+  - "parentesco12-max"
+  - "parentesco12-sum"
+  - "instlevel1-min"
+  - "instlevel1-max"
+  - "instlevel1-sum"
+  - "instlevel2-min"
+  - "instlevel2-max"
+  - "instlevel2-sum"
+  - "instlevel2-std"
+  - "instlevel3-min"
+  - "instlevel3-max"
+  - "instlevel3-sum"
+  - "instlevel3-std"
+  - "instlevel4-min"
+  - "instlevel4-max"
+  - "instlevel4-sum"
+  - "instlevel4-std"
+  - "instlevel5-min"
+  - "instlevel5-max"
+  - "instlevel5-sum"
+  - "instlevel6-min"
+  - "instlevel6-max"
+  - "instlevel7-min"
+  - "instlevel7-max"
+  - "instlevel8-min"
+  - "instlevel8-max"
+  - "instlevel8-sum"
+  - "instlevel8-std"
+  - "instlevel9-min"
+  - "instlevel9-max"
+  - "mobilephone-min"
+  - "mobilephone-std"
+  - "mobilephone-range_"
+  - "rez_esc-min"
+  - "rez_esc-max"
+  - "escolari-min"
+  - "escolari-max"
+  - "escolari-sum"
+  - "escolari-std"
+  - "escolari-range_"
+  - "age-min"
+  - "age-max"
+  - "age-sum"
+  - "age-std"
+  - "age-range_"
+  - "inst-max"
+  - "inst-std"
+  - "inst-range_"
+  - "escolari_normalized_by_age-min"
+  - "escolari_normalized_by_age-max"
+  - "escolari_normalized_by_age-sum"
+  - "escolari_normalized_by_age-std"
+  - "escolari_normalized_by_age-range_"
+  - "inst_normalized_by_age-max"
+  - "inst_normalized_by_age-std"
+  - "inst_normalized_by_age-range_"
+  - "tech-min"
+  - "tech-sum"
+  - "tech-std"
+  - "tech-range_"
+
+# Model config ------------------------------
+
+# Dependent variable
+DV: Target
+
+# poverty level mapping
+POVERTY_MAPPING:
+  1: extreme
+  2: moderate
+  3: vulnerable
+  4: not vulnerable
+
+# set train/test split
+TEST_SIZE: 0.1
+
+# Number of CV folds
+NFOLDS: 10
+
+# to set the random seed
+RANDOM_STATE: 10
+
+# evaluation metric
+SCORING: f1 # precision  # recall
+
+# Top n feature importance
+TOP_N_FEATURE_IMPORTANCE: 10
+
+# Pipeline hyperparameters ---------------------------
+
+IMPUTATION_METHOD: median
+DROP_NZV_TOL: 0.8
+
+#OVERSAMPLING_STRATEGY:
+#  1: 500
+#  2: 500
+#  3: 500
+
+#UNDERSAMPLING_STRATEGY:
+#  4: 1000
+
+# number of estimators for the ExtraTreesClassifier that is used to select features
+FEATURE_SEL_MODEL_N_ESTIMATORS: 100
+
+# Random Forest hyperparameters
+CLF__N_ESTIMATORS: 100
+CLF__MAX_DEPTH: 40
+CLF__MIN_SAMPLES_SPLIT: 15
+CLF__MIN_SAMPLES_LEAF: 1
+
+# Debug --------------------
+# debug pipeline mode
+DEBUG_PIPELINE: False
+SAVED_COL_NAME_FILE: "saved_col_names.pkl"

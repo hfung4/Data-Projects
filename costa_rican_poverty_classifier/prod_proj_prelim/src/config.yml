@@ -1,0 +1,39 @@
+# random state
+RANDOM_STATE: 10
+
+# Number of CV folds
+NFOLDS: 5
+
+# evaluation metric
+SCORING: "f1_weighted" #"f1_macro", "average_precision"
+
+# poverty level mapping
+POVERTY_MAPPING:
+  1: extreme
+  2: moderate
+  3: vulnerable
+  4: not vulnerable
+
+# Name of the dependent variable
+DV: Target
+
+# Pipeline hyperparameters
+IMPUTATION_METHOD: median
+DROP_NZV_TOL: 0.8
+
+OVERSAMPLING_STRATEGY:
+  1: 500
+  2: 500
+  3: 500
+
+UNDERSAMPLING_STRATEGY:
+  4: 1000
+
+# number of estimators for the ExtraTreesClassifier that is used to select features
+FEATURE_SEL_MODEL_N_ESTIMATORS: 100
+
+# Random Forest hyperparameters
+CLF__N_ESTIMATORS: 100
+CLF__MAX_DEPTH: 40
+CLF__MIN_SAMPLES_SPLIT: 15
+CLF__MIN_SAMPLES_LEAF: 1
