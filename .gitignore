@@ -44,6 +44,6 @@ Thumbs.db
 *.csv
 *.pyc
 .idea
-*.pkl
+#*.pkl
 *.pyc
 *.joblib
