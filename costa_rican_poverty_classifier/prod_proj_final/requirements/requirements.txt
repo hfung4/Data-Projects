@@ -29,7 +29,7 @@ feature-engine==1.4.1
 filelock==3.9.0
 fonttools==4.33.3
 gitdb==4.0.9
-GitPython==3.1.27
+GitPython==3.1.30
 idna==3.3
 imbalanced-learn==0.9.1
 imblearn==0.0
