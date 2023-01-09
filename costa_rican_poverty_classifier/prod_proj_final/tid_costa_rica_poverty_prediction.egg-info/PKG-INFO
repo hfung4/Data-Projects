@@ -1,8 +1,8 @@
 Metadata-Version: 2.1
 Name: tid-costa-rica-poverty-prediction
-Version: 0.0.1
+Version: 0.0.2
 Summary: Train a Random Forest model to predict poverty level of costa rican household based on their demographic characteristics
-Home-page: https://github.com/hfung4/Data-Projects/tree/master/salary_survey_project/salary_survey_production
+Home-page: https://github.com/hfung4/Data-Projects/tree/master/costa_rican_poverty_classifier/prod_proj_final
 Author: HenryF
 Author-email: henryhfung21@gmail.com
 License: BSD-3

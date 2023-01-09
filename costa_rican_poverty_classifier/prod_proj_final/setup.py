@@ -8,7 +8,7 @@ from setuptools import find_packages, setup
 # Package meta-data.
 NAME = "tid-costa_rica_poverty-prediction"
 DESCRIPTION = "Train a Random Forest model to predict poverty level of costa rican household based on their demographic characteristics"
-URL = "https://github.com/hfung4/Data-Projects/tree/master/salary_survey_project/salary_survey_production"
+URL = "https://github.com/hfung4/Data-Projects/tree/master/costa_rican_poverty_classifier/prod_proj_final"
 EMAIL = "henryhfung21@gmail.com"
 AUTHOR = "HenryF"
 REQUIRES_PYTHON = ">=3.10.5"
