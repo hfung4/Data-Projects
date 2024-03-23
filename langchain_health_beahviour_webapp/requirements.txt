@@ -1,0 +1,14 @@
+openai
+langchain
+langchain-experimental
+python-dotenv
+pandas
+scikit-learn
+seaborn
+matplotlib
+streamlit
+streamlit-toggle-switch
+tabulate
+tiktoken
+duckduckgo-search
+xmltodict
