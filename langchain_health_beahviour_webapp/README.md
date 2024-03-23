@@ -16,7 +16,7 @@ Used [LangChain](https://www.langchain.com/) to build a simple LLM chatbot for a
 
 - I use [agents](https://python.langchain.com/docs/modules/agents/) (a component of LangChain), which are modular “expert” tools that are targeted for specific task
 
-- Several agents were used for the app, which is built in Streamlit, containerized in Docker, and Deployed with Github Action on Heroku (or AWS ECS)
+  Several agents were used for the app, which is built in Streamlit, containerized in Docker, and Deployed with Github Action on Heroku (or AWS ECS):
 
 - DuckDuckGo Search
 
