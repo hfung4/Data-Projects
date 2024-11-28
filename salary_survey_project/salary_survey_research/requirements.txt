@@ -21,7 +21,7 @@ feature-engine==1.4.1
 fonttools==4.33.3
 iniconfig==1.1.1
 ipykernel==6.15.0
-ipython==8.4.0
+ipython==8.10.0
 ipython-genutils==0.2.0
 ipywidgets==7.7.0
 jedi==0.18.1
