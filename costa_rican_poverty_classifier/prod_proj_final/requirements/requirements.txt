@@ -77,7 +77,7 @@ pathspec==0.10.2
 patsy==0.5.2
 pexpect==4.8.0
 pickleshare==0.7.5
-Pillow==9.1.0
+Pillow==9.3.0
 platformdirs==2.6.2
 plotly==5.10.0
 pluggy==1.0.0
